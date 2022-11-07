@@ -5,4 +5,18 @@ const DOMSelectors = {
   input: document.querySelector(`#input`),
 };
 
-DOMSelectors.box.i;
+function createObject ({
+
+})
+
+function insertObject({
+
+})
+
+function clearInput({
+
+})
+
+function removeObject ({
+
+})
