@@ -5,18 +5,8 @@ const DOMSelectors = {
   input: document.querySelector(`#input`),
 };
 
-function createObject ({
-
-})
-
-function insertObject({
-
-})
-
-function clearInput({
-
-})
-
-function removeObject ({
-
-})
+DOMSelectors.button.addEventListener("click", function () {
+  let input = DOMSelectors.input.value;
+  DOMSelectors.box.insertAdjacentHTML("beforeend", `<P> ${input}</P>`);
+  DOMSelectors = "";
+});
