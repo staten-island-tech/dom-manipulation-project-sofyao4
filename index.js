@@ -3,10 +3,11 @@ const DOMSelectors = {
   button: document.getElementById("btn"),
   box: document.getElementById("container-box"),
   input: document.querySelector(`#input`),
+  title: document.getElementById("title"),
 };
-
-DOMSelectors.button.addEventListener("click", function () {
-  let input = DOMSelectors.input.value;
-  DOMSelectors.box.insertAdjacentHTML("beforeend", `<P> ${input}</P>`);
-  DOMSelectors = "";
-});
+const title = "Zee";
+console.log(DOMSelectors.title);
+const StarWars = {
+  title: "Star Wars",
+};
+function makeCard() {}
