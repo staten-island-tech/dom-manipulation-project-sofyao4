@@ -1,13 +1,20 @@
-// select elements by id or class
 const DOMSelectors = {
-  button: document.getElementById("btn"),
+  result: document.getElementById("result"),
   box: document.getElementById("container-box"),
-  input: document.querySelector(`#input`),
-  title: document.getElementById("title"),
+  name: document.querySelector(`#name`),
+  remove: document.getElementById(`#remove`),
 };
-const title = "Zee";
-console.log(DOMSelectors.title);
-const StarWars = {
-  title: "Star Wars",
-};
-function makeCard() {}
+
+DOMSelectors.result.addEventListener("click", function () {
+  let name = DOMSelectors.name.value;
+  DOMSelectors.box.insertAdjacentHTML(
+    "beforeend",
+    `<p>Hi! My name is ${name}. 
+    <button type="button" id="remove">Remove</button></p>`
+  );
+  DOMSelectors.name.value = "";
+});
+
+DOMSelectors.remove.addEventListener("click", function () {
+  delete DOMSelectors.name;
+});
