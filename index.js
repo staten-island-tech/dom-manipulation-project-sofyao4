@@ -3,18 +3,22 @@ const DOMSelectors = {
   box: document.getElementById("container-box"),
   name: document.querySelector(`#name`),
   removebtn: document.getElementById("removebtn"),
+  text: document.getElementById("hiMyNameIs"),
 };
 function getResult() {
-  DOMSelectors.result.addEventListener("click", function () {
+  DOMSelectors.result.addEventListener("click", function (event) {
     let name = DOMSelectors.name.value;
+    event.preventDefault();
     DOMSelectors.box.insertAdjacentHTML(
       "beforeend",
-      `<p>Hi! My name is ${name}. </p>`
+      `<p id="hiMyNameIs">Hi! My name is ${name}. </p>`
     );
     DOMSelectors.name.value = "";
+
+    DOMSelectors.removebtn.addEventListener("click", function () {
+      const hiMyNameIs = DOMSelectors.text;
+      hiMyNameIs.parentNode.removeChild(hiMyNameIs);
+    });
   });
 }
 getResult();
-DOMSelectors.removebtn.addEventListener("click", function () {
-  delete Ad;
-});
