@@ -1,0 +1,19 @@
+
+body{
+
+    text-align: center;
+    color: rgba(0, 0, 0, 0.808);
+}
+p{
+    font-size: 3rem;
+    padding-top: 5rem;
+}
+input{
+    font-size: 2rem;
+
+    color: rgba(0, 0, 0, 0.808);
+}
+button{
+    margin: 1rem;
+    color: rgba(0, 0, 0, 0.808);    font-size: 2rem;
+}

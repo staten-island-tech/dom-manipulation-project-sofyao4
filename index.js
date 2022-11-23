@@ -2,7 +2,7 @@ const DOMSelectors = {
   result: document.getElementById("result"),
   box: document.getElementById("container-box"),
   name: document.querySelector(`#name`),
-  removebtn: document.getElementById("removebtn"),
+  erasebtn: document.getElementById("erasebtn"),
   text: document.getElementById("para"),
 };
 function getResult() {
@@ -12,17 +12,18 @@ function getResult() {
     DOMSelectors.name.value = "";
     DOMSelectors.box.insertAdjacentHTML(
       "beforeend",
-      `<p>Hi! My name is ${name}. </p>`
+      `<p>Hi! My name is ${name}. 
+      <button class = "remove-btn">Remove</button></p>`
     );
-    const remove = document.querySelectorAll("removebtn");
-    remove.forEach((remove) => {
-      remove.addEventListener("click", function () {
+    const remove = Array.from(document.getElementsByClassName("remove-btn"));
+    remove.forEach((button) => {
+      button.addEventListener("click", function () {
         this.parentElement.remove();
       });
     });
   });
 }
-DOMSelectors.removebtn.addEventListener("click", function () {
+DOMSelectors.erasebtn.addEventListener("click", function () {
   DOMSelectors.box.innerHTML = "";
 });
 getResult();
