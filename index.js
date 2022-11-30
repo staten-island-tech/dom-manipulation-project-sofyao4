@@ -3,27 +3,36 @@ const DOMSelectors = {
   box: document.getElementById("container-box"),
   name: document.querySelector(`#name`),
   erasebtn: document.getElementById("erasebtn"),
-  text: document.getElementById("para"),
 };
+// an extra function that erases everything
+function eraseAll() {
+  DOMSelectors.erasebtn.addEventListener("click", function () {
+    DOMSelectors.box.innerHTML = "";
+  });
+}
+
 function getResult() {
-  DOMSelectors.result.addEventListener("click", function (event) {
-    let name = DOMSelectors.name.value;
-    event.preventDefault();
-    DOMSelectors.name.value = "";
-    DOMSelectors.box.insertAdjacentHTML(
-      "beforeend",
-      `<p>Hi! My name is ${name}. 
-      <button class = "remove-btn">Remove</button></p>`
-    );
-    const remove = Array.from(document.getElementsByClassName("remove-btn"));
-    remove.forEach((button) => {
-      button.addEventListener("click", function () {
-        this.parentElement.remove();
-      });
+  let name = DOMSelectors.name.value;
+  DOMSelectors.box.insertAdjacentHTML(
+    "beforeend",
+    `<p>Hi! My name is ${name}. 
+        <button class = "remove-btn">Remove</button></p>`
+  );
+  const remove = Array.from(document.getElementsByClassName("remove-btn"));
+  remove.forEach((button) => {
+    button.addEventListener("click", function () {
+      button.parentElement.remove();
     });
   });
 }
-DOMSelectors.erasebtn.addEventListener("click", function () {
-  DOMSelectors.box.innerHTML = "";
+
+function clearInput() {
+  DOMSelectors.name.value = "";
+}
+
+DOMSelectors.result.addEventListener("click", function (event) {
+  event.preventDefault();
+  getResult();
+  clearInput();
+  eraseAll();
 });
-getResult();
